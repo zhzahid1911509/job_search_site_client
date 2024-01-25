@@ -6,7 +6,7 @@ const Footer = () => {
            <div>
             &copy;2024 Zahid. All rights reserved.
            </div>
-           <div className="flex gap-4">
+           <div className="flex gap-4 text-xl">
             <p><FaFacebookSquare /></p>
             <p><FaTwitterSquare/></p>
             <p><FaInstagramSquare/></p>
