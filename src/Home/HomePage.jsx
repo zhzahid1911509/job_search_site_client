@@ -2,18 +2,22 @@ import { Accordion, AccordionDetails, AccordionSummary, Typography } from "@mui/
 import { useState } from "react";
 import { FaGripLines } from "react-icons/fa";
 import { ExpandMoreOutlined } from "@mui/icons-material";
+import { useLoaderData } from "react-router-dom";
+import JobCard from "../JobsPages/JobCard";
 
 const HomePage = () => {
 
   const [expanded, setExpanded] = useState(false);
 
-  const [sales, setSales] = useState([]);
-  const [digitals, setDigital] = useState([]);
-  const [managements, setManagement] = useState([]);
-  const [hrAdmins, setHrAdmin] = useState([]);
-  const [developments, setDevelopment] = useState([]);
-  const [engineerings, setEngineering] = useState([]);
-  const [creatives, setCreative] = useState([]);
+  const allJobs = useLoaderData();
+  
+  const salesJobs = allJobs.filter(sJob => sJob.category_code === 'sm001')
+  const dmJobs = allJobs.filter(dmJob => dmJob.category_code === 'dm002')
+  const admJobs = allJobs.filter(admJob => admJob.category_code === 'adm003')
+  const hrJobs = allJobs.filter(hrJob => hrJob.category_code === 'hr004')
+  const devJobs = allJobs.filter(devJob => devJob.category_code === 'dv005')
+  const engrJobs = allJobs.filter(engrJob => engrJob.category_code === 'engr006')
+  const crtvJobs = allJobs.filter(crtvJob => crtvJob.category_code === 'crtv007')
 
   const handleChange = (panel) => (event, isExpanded) => {
     setExpanded(isExpanded ? panel : false);
@@ -41,8 +45,11 @@ const HomePage = () => {
         </AccordionSummary>
         <AccordionDetails>
           <Typography>
-            Nulla facilisi. Phasellus sollicitudin nulla et quam mattis feugiat.
-            Aliquam eget maximus est, id dignissim quam.
+          <div className="grid grid-cols-1 md:grid-cols-3 mx-auto gap-4 my-4">
+                {salesJobs.map(job => (
+                    <JobCard key={job._id} job={job} />
+                ))}
+        </div>
           </Typography>
         </AccordionDetails>
       </Accordion>
@@ -59,8 +66,11 @@ const HomePage = () => {
         </AccordionSummary>
         <AccordionDetails>
           <Typography>
-            Nulla facilisi. Phasellus sollicitudin nulla et quam mattis feugiat.
-            Aliquam eget maximus est, id dignissim quam.
+          <div className="grid grid-cols-1 md:grid-cols-3 mx-auto gap-4 my-4">
+                {crtvJobs.map(job => (
+                    <JobCard key={job._id} job={job} />
+                ))}
+        </div>
           </Typography>
         </AccordionDetails>
       </Accordion>
@@ -77,8 +87,11 @@ const HomePage = () => {
         </AccordionSummary>
         <AccordionDetails>
           <Typography>
-            Nulla facilisi. Phasellus sollicitudin nulla et quam mattis feugiat.
-            Aliquam eget maximus est, id dignissim quam.
+          <div className="grid grid-cols-1 md:grid-cols-3 mx-auto gap-4 my-4">
+                {hrJobs.map(job => (
+                    <JobCard key={job._id} job={job} />
+                ))}
+        </div>
           </Typography>
         </AccordionDetails>
       </Accordion>
@@ -95,8 +108,11 @@ const HomePage = () => {
         </AccordionSummary>
         <AccordionDetails>
           <Typography>
-            Nulla facilisi. Phasellus sollicitudin nulla et quam mattis feugiat.
-            Aliquam eget maximus est, id dignissim quam.
+          <div className="grid grid-cols-1 md:grid-cols-3 mx-auto gap-4 my-4">
+                {admJobs.map(job => (
+                    <JobCard key={job._id} job={job} />
+                ))}
+        </div>
           </Typography>
         </AccordionDetails>
       </Accordion>
@@ -113,8 +129,11 @@ const HomePage = () => {
         </AccordionSummary>
         <AccordionDetails>
           <Typography>
-            Nulla facilisi. Phasellus sollicitudin nulla et quam mattis feugiat.
-            Aliquam eget maximus est, id dignissim quam.
+          <div className="grid grid-cols-1 md:grid-cols-3 mx-auto gap-4 my-4">
+                {dmJobs.map(job => (
+                    <JobCard key={job._id} job={job} />
+                ))}
+        </div>
           </Typography>
         </AccordionDetails>
       </Accordion>
@@ -131,8 +150,11 @@ const HomePage = () => {
         </AccordionSummary>
         <AccordionDetails>
           <Typography>
-            Nulla facilisi. Phasellus sollicitudin nulla et quam mattis feugiat.
-            Aliquam eget maximus est, id dignissim quam.
+          <div className="grid grid-cols-1 md:grid-cols-3 mx-auto gap-4 my-4">
+                {devJobs.map(job => (
+                    <JobCard key={job._id} job={job} />
+                ))}
+        </div>
           </Typography>
         </AccordionDetails>
       </Accordion>
@@ -149,8 +171,11 @@ const HomePage = () => {
         </AccordionSummary>
         <AccordionDetails>
           <Typography>
-            Nulla facilisi. Phasellus sollicitudin nulla et quam mattis feugiat.
-            Aliquam eget maximus est, id dignissim quam.
+          <div className="grid grid-cols-1 md:grid-cols-3 mx-auto gap-4 my-4">
+                {engrJobs.map(job => (
+                    <JobCard key={job._id} job={job} />
+                ))}
+        </div>
           </Typography>
         </AccordionDetails>
       </Accordion>

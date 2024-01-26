@@ -12,7 +12,8 @@ const router = createBrowserRouter([
     children: [
         {
             path: "/home",
-            element: <PrivateRoute><HomePage></HomePage></PrivateRoute>
+            element: <PrivateRoute><HomePage></HomePage></PrivateRoute>,
+            loader: () => fetch('http://localhost:4050/jobs')
         },
         {
           path: "/",
