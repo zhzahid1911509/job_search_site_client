@@ -28,7 +28,7 @@ const LoginPage = () => {
         .then(result=>{
             console.log(result.user);
             e.target.reset();
-            navigate(location?.state ? location.state : '/');
+            navigate(location?.state ? location.state : '/home');
         })
         .catch(error=>{
             console.log(error.message);
