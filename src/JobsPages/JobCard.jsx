@@ -5,7 +5,7 @@ import { Link } from "react-router-dom";
 
 const JobCard = ({job}) => {
 
-    const {_id, category, category_code, job_title, job_type, job_description, job_requirements, salary, other_benefits, deadline} = job;
+    const {_id, category, job_title, job_type, salary, deadline} = job;
 
     return (
         <div>

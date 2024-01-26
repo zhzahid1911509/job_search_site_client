@@ -55,11 +55,11 @@ const RegisterPage = () => {
         createUser(email, password)
         .then(result => {
             console.log(result.user);
-            setSuccess('User is created successfully');
+            toast.success('User is created successfully');
 
             updateProfile(result.user, {
                 displayName: name, 
-                photoURL: "https://img.icons8.com/external-tanah-basah-glyph-tanah-basah/48/external-glyph-web-and-seo-tanah-basah-glyph-tanah-basah-53.png"
+                photoURL: "https://img.icons8.com/fluency/48/user-male-circle--v1.png"
             })
             .then( () => console.log('profile updated'))
             .catch()
