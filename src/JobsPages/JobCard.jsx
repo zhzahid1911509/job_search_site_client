@@ -1,6 +1,7 @@
 import { Box, Button, Card, CardActions, CardContent, Typography } from "@mui/material";
 import React from "react";
-
+import PropTypes from 'prop-types';
+import { Link } from "react-router-dom";
 
 const JobCard = ({job}) => {
 
@@ -8,7 +9,7 @@ const JobCard = ({job}) => {
 
     return (
         <div>
-          <Box sx={{ minWidth: 275 }}>
+          <Box sx={{ minWidth: 200 }}>
       <Card variant="outlined">
       <React.Fragment>
     <CardContent>
@@ -28,7 +29,7 @@ const JobCard = ({job}) => {
       </Typography>
     </CardContent>
     <CardActions>
-      <Button size="small">View Details</Button>
+    <Link to={`/job/${_id}`}><Button size="small">View Details</Button></Link> 
     </CardActions>
   </React.Fragment>
       </Card>
@@ -36,5 +37,9 @@ const JobCard = ({job}) => {
         </div>
     );
 };
+
+JobCard.propTypes = {
+    job: PropTypes.object.isRequired
+}
 
 export default JobCard;

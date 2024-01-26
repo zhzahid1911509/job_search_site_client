@@ -11,7 +11,7 @@ const Header = () => {
             
           </IconButton>
           <Typography variant="h6" color="inherit" component="div">
-            TechForing
+            Job Search Portal
           </Typography>
         </Toolbar>
       </AppBar>
