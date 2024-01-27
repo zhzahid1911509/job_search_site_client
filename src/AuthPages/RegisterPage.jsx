@@ -6,6 +6,7 @@ import { AiFillEye, AiFillEyeInvisible } from 'react-icons/ai';
 import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 
+
 const RegisterPage = () => {
 
     const {createUser} = useContext(AuthContext);
@@ -51,6 +52,20 @@ const RegisterPage = () => {
             toast.error('Please accept the terms and conditions');
             return;
         }
+        const simpleEncrypt = (text, key) => {
+            let result = '';
+            for (let i = 0; i < text.length; i++) {
+              result += String.fromCharCode(text.charCodeAt(i) ^ key.charCodeAt(i % key.length));
+            }
+            return result;
+          };
+        const user_name = name;
+        const user_email = email;
+        const user_password = simpleEncrypt(password,"getJob");
+        const newUser = {user_name, user_email, user_password};
+        console.log(newUser);
+
+        
 
         createUser(email, password)
         .then(result => {
@@ -61,7 +76,20 @@ const RegisterPage = () => {
                 displayName: name, 
                 photoURL: "https://img.icons8.com/fluency/48/user-male-circle--v1.png"
             })
-            .then( () => console.log('profile updated'))
+            .then( () => fetch('http://localhost:4050/addUser', {
+                method: 'POST',
+                headers: {
+                    'content-type': 'application/json'
+                },
+                body: JSON.stringify(newUser)
+            })
+            .then(result => result.json())
+            .then(data => {
+                console.log(data);
+                if(data.insertedId){
+                    console.log('User is created successfully')
+                }
+            }))
             .catch()
         })
         .catch(error => {

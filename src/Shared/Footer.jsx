@@ -2,7 +2,7 @@ import { FaFacebookSquare, FaTwitterSquare, FaInstagramSquare, FaLinkedin } from
 
 const Footer = () => {
     return (
-        <div className="flex flex-col gap-4 sm:flex-row justify-around items-center p-4 mt-4 bg-[#00008B] text-white">
+        <div className="flex flex-col gap-4 sm:flex-row justify-around items-center p-4 mt-4 bg-[#003399] text-white bottom-0 mx-auto">
            <div>
             &copy;2024 Zahid. All rights reserved.
            </div>

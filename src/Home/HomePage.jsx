@@ -1,5 +1,5 @@
 import { Accordion, AccordionDetails, AccordionSummary, Typography } from "@mui/material";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { FaGripLines } from "react-icons/fa";
 import { ExpandMoreOutlined } from "@mui/icons-material";
 import { useLoaderData } from "react-router-dom";
@@ -10,20 +10,20 @@ const HomePage = () => {
   const [expanded, setExpanded] = useState(false);
 
   const allJobs = useLoaderData();
-  
-  const salesJobs = allJobs.filter(sJob => sJob.category_code === 'sm001')
-  const dmJobs = allJobs.filter(dmJob => dmJob.category_code === 'dm002')
-  const admJobs = allJobs.filter(admJob => admJob.category_code === 'adm003')
-  const hrJobs = allJobs.filter(hrJob => hrJob.category_code === 'hr004')
-  const devJobs = allJobs.filter(devJob => devJob.category_code === 'dv005')
-  const engrJobs = allJobs.filter(engrJob => engrJob.category_code === 'engr006')
-  const crtvJobs = allJobs.filter(crtvJob => crtvJob.category_code === 'crtv007')
+
+    const salesJobs = allJobs.filter(sJob => sJob.category_code === 'sm001')
+    const dmJobs = allJobs.filter(dmJob => dmJob.category_code === 'dm002')
+    const admJobs = allJobs.filter(admJob => admJob.category_code === 'adm003')
+    const hrJobs = allJobs.filter(hrJob => hrJob.category_code === 'hr004')
+    const devJobs = allJobs.filter(devJob => devJob.category_code === 'dv005')
+    const engrJobs = allJobs.filter(engrJob => engrJob.category_code === 'engr006')
+    const crtvJobs = allJobs.filter(crtvJob => crtvJob.category_code === 'crtv007')
 
   const handleChange = (panel) => (event, isExpanded) => {
     setExpanded(isExpanded ? panel : false);
   }
     return (
-        <div>
+        <div className="mx-auto">
            <div className="text-center">
            <img className="block m-auto" src="https://i.postimg.cc/m2Pr0dfd/job-search-portals.png" alt="" />
            </div>

@@ -6,6 +6,9 @@ import RegisterPage from "../AuthPages/RegisterPage";
 import PrivateRoute from "./PrivateRoute";
 import JobDetails from "../JobsPages/JobDetails";
 import CreateJob from "../JobsPages/CreateJob";
+import { ThemeProvider, createTheme } from "@mui/material";
+
+const theme = createTheme();
 
 const router = createBrowserRouter([
   {
@@ -27,7 +30,7 @@ const router = createBrowserRouter([
         },
         {
           path: '/job/:_id',
-          element: <PrivateRoute><JobDetails></JobDetails></PrivateRoute>,
+          element: <PrivateRoute><ThemeProvider theme={theme}><JobDetails></JobDetails></ThemeProvider></PrivateRoute>,
           loader: () => fetch('http://localhost:4050/jobs')
         },
         {

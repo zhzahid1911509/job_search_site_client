@@ -14,8 +14,9 @@ const Header = () => {
   }
   
 return (
-  <Box sx={{ flexGrow: 1 }}>
-    <AppBar position="static" style={{ backgroundColor: 'darkblue' }}>
+  <div className="mb-20">
+  <Box sx={{ flexWrap:1 }}>
+    <AppBar position="fixed" style={{ backgroundColor: '#003399', width:'fit', margin:'auto' }}>
       <Toolbar>
         <IconButton
           size="large"
@@ -29,7 +30,7 @@ return (
           <Link to='/home'>Job Portal</Link>
           
         </Typography>
-        <Link to='/postJob'><div className="text-[#00008B] font-bold bg-slate-200 rounded-md mx-2"><Button>Post a Job</Button></div></Link>
+        <Link to='/postJob'><div className="text-[#003399] font-bold bg-slate-200 rounded-md mx-2"><Button>Post a Job</Button></div></Link>
         <div>
         {
         user
@@ -46,6 +47,8 @@ return (
       </Toolbar>
     </AppBar>
   </Box>
+  </div>
+  
 );
 };
 
